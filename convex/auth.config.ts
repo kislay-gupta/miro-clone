@@ -1,7 +1,7 @@
 export default {
   providers: [
     {
-      domain: "https://lucky-mosquito-51.clerk.accounts.dev",
+      domain: process.env.NEXT_PUBLIC_CONVEX_DOMAIN!,
       applicationID: "convex",
     },
   ],
