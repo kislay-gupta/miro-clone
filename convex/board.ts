@@ -36,3 +36,16 @@ export const create = mutation({
     return board;
   },
 });
+
+export const remove = mutation({
+  args: { id: v.id("boards") },
+  handler: async (ctx, args) => {
+    const identify = await ctx.auth.getUserIdentity();
+
+    if (!identify) {
+      throw new Error("Unauthorized");
+    }
+    // TODO : Later check to delete favorite as well
+    await ctx.db.delete(args.id);
+  },
+});
