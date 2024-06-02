@@ -1,6 +1,5 @@
 import { Camera, Color, Point, Side, XYWH } from "@/types/canvas";
 import { type ClassValue, clsx } from "clsx";
-import result from "postcss/lib/result";
 import { twMerge } from "tailwind-merge";
 const COLORS = ["#DC2626", "#097706", "#059669", "#7C3AED", "#DB2777"];
 export function cn(...inputs: ClassValue[]) {

@@ -3,17 +3,18 @@ export type Color = {
   g: number;
   b: number;
 };
+
 export type Camera = {
   x: number;
   y: number;
 };
 
 export enum LayerType {
+  Text,
+  Note,
   Rectangle,
   Ellipse,
   Path,
-  Text,
-  Note,
 }
 
 export type RectangleLayer = {
@@ -71,6 +72,7 @@ export type Point = {
   x: number;
   y: number;
 };
+
 export type XYWH = {
   x: number;
   y: number;
@@ -90,6 +92,10 @@ export type CanvasState =
       mode: CanvasMode.None;
     }
   | {
+      mode: CanvasMode.Pressing;
+      origin: Point;
+    }
+  | {
       mode: CanvasMode.SelectionNet;
       origin: Point;
       current?: Point;
@@ -107,16 +113,12 @@ export type CanvasState =
         | LayerType.Note;
     }
   | {
-      mode: CanvasMode.Pencil;
-    }
-  | {
-      mode: CanvasMode.Pressing;
-      origin: Point;
-    }
-  | {
       mode: CanvasMode.Resizing;
       initialBounds: XYWH;
       corner: Side;
+    }
+  | {
+      mode: CanvasMode.Pencil;
     };
 
 export enum CanvasMode {
