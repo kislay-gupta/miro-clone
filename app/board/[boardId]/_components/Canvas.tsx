@@ -45,8 +45,8 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
   const [lastUsedColor, setLastUsedColor] = useState<Color>({
     r: 255,
-    g: 192,
-    b: 100,
+    g: 255,
+    b: 255,
   });
   const history = useHistory();
   const canRedo = useCanRedo();
@@ -252,7 +252,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
         onPointerMove={onPointerMove}
         onPointerLeave={onPointerLeave}
         onPointerUp={onPointerUp}
-        onPointerDown={onPointerDown}
+        // onPointerDown={onPointerDown}
       >
         <g
           style={{

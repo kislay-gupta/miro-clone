@@ -30,7 +30,7 @@ const ColorButton = ({ onClick, color }: ColorButtonProps) => {
     <button
       className=" size-8 flex items-center justify-center hover:opacity-75 transition"
       onClick={() => {
-        color;
+        onClick(color);
       }}
     >
       <div

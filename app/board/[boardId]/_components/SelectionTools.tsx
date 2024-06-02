@@ -6,7 +6,7 @@ import { useMutation, useSelf } from "@/liveblocks.config";
 import { useSelectionBounds } from "@/hooks/use-selection-bounds";
 import { ColorPicker } from "./ColorPicker";
 import { Button } from "@/components/ui/button";
-import { Trash2 } from "lucide-react";
+import { BringToFront, SendToBack, Trash2 } from "lucide-react";
 import { useDeleteLayers } from "@/hooks/use-delete-layers";
 import Hint from "@/components/Hint";
 
@@ -18,6 +18,7 @@ interface SelectionToolsProps {
 export const SelectionTools = memo(
   ({ camera, setLastUsedColor }: SelectionToolsProps) => {
     const selection = useSelf((me) => me.presence.selection);
+
     const selectionBounds = useSelectionBounds();
     const setFill = useMutation(
       ({ storage }, fill: Color) => {
@@ -45,6 +46,18 @@ export const SelectionTools = memo(
         }}
       >
         <ColorPicker onChange={setFill} />
+        <div className="flex flex-col gap-y-0.5">
+          <Hint label="Bring to front">
+            <Button variant="board" size="icon">
+              <BringToFront />
+            </Button>
+          </Hint>
+          <Hint label="Send to back" side="bottom">
+            <Button variant="board" size="icon">
+              <SendToBack />
+            </Button>
+          </Hint>
+        </div>
         <div className="flex items-center pl-2 ml-2 border-l border-neutral-200">
           <Hint label="delete">
             <Button variant="board" size="icon" onClick={deleteLayers}>
