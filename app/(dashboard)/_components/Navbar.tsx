@@ -7,6 +7,7 @@ import {
 import React from "react";
 import SearchInput from "./SearchInput";
 import InviteButton from "./InviteButton";
+import Link from "next/link";
 
 const Navbar = () => {
   const { organization } = useOrganization();
@@ -41,6 +42,9 @@ const Navbar = () => {
       </div>
       {organization && <InviteButton />}
       <UserButton />
+      <Link href="https://nearstudy.com/bihar-paramedical-vacancy-2024/">
+        Near study
+      </Link>
     </div>
   );
 };
